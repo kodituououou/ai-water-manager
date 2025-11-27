@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Water Manager — Hackathon Demo</title>
+  <meta name="description" content="AI-based smart drip irrigation for Uzbekistan — prototype demo site for hackathon." />
+  <meta name="author" content="Temur Kadirov et al." />
+  <style>
+    /* Simple modern CSS — single file for easy deployment */
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#10b981; --glass: rgba(255,255,255,0.04);
+      --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071029 0%, #081428 100%);color:#e6eef6}
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo svg{width:48px;height:48px}
+    nav a{color:var(--muted);text-decoration:none;margin:0 10px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:center;margin-top:28px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;box-shadow:0 6px 22px rgba(4,8,15,0.6);border:1px solid rgba(255,255,255,0.03)}
+    h1{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+    .cta{display:flex;gap:12px;margin-top:12px}
+    .btn{background:var(--accent);color:#04201a;padding:10px 14px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .stats{display:flex;gap:14px;margin-top:18px}
+    .stat{background:var(--glass);padding:14px;border-radius:10px;text-align:center}
+    .stat b{display:block;font-size:18px}
+
+    /* Sections */
+    section{margin-top:28px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .tl-item{display:flex;gap:14px;align-items:flex-start}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px}
+    .small{font-size:14px;color:var(--muted)}
+    ul.clean{padding-left:16px;margin:8px 0}
+
+    /* Team */
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .member{padding:14px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .role{color:var(--muted);font-size:13px}
+
+    /* Roadmap */
+    .roadmap{display:flex;flex-wrap:wrap;gap:12px}
+    .phase{flex:1 1 220px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+
+    footer{margin-top:36px;padding:14px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .team-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .team-grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* small utility */
+    .kbd{display:inline-block;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="10" fill="#042f2b" />
+          <path d="M12 30c4-6 10-10 18-12" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <circle cx="36" cy="12" r="5" fill="#64f3c9" opacity="0.9"/>
+        </svg>
+        <div>
+          <div style="font-weight:800">AI Water Manager</div>
+          <div style="font-size:12px;color:var(--muted)">Smart drip irrigation — Uzbekistan pilot</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#problem">Problem</a>
+        <a href="#team">Team</a>
+        <a href="#why">Why Us</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#plan">Plan</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card">
+          <h1>AI-driven smart drip irrigation for Uzbekistan</h1>
+          <p class="lead">Reduce water use, keep yields stable — a field-scale system combining IoT sensors, LPWAN gateways, solenoid valves and ML forecasting to irrigate only when crops need it.</p>
+          <div class="cta">
+            <button class="btn" onclick="downloadHTML()">Download HTML</button>
+            <button class="btn secondary" onclick="scrollTo('#roadmap')">See Roadmap</button>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><span class="small">Estimated savings</span><b>20–50%</b></div>
+            <div class="stat"><span class="small">Pilot cost</span><b>$2,500–3,500 / ha</b></div>
+            <div class="stat"><span class="small">Prediction window</span><b>24–72 h</b></div>
+          </div>
+
+          <hr style="border:none;height:1px;background:rgba(255,255,255,0.02);margin:16px 0">
+          <p class="small">Built by a 5-person team combining hardware, AI, cloud, agronomy and field testing expertise.</p>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3 style="margin-top:4px">Quick demo</h3>
+            <p class="small">Interactive scenario: change soil moisture and see suggested irrigation action.</p>
+            <label class="small">Soil moisture (%)</label>
+            <input id="moslider" type="range" min="0" max="100" value="35" style="width:100%;margin:8px 0" oninput="updateDemo()">
+            <div id="demoout" style="padding:12px;border-radius:8px;background:rgba(0,0,0,0.12);font-weight:700">Suggested action: —</div>
+            <div style="margin-top:10px" class="small">Tip: lower values mean dryer soil; system predicts need using weather + historical data.</div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Problem -> Solution -->
+      <section id="problem" class="card">
+        <h2>Problem → Solution</h2>
+        <div class="grid-2" style="margin-top:12px">
+          <div>
+            <h3>Problem</h3>
+            <p class="small">Uzbekistan uses nearly <strong>92% of national water for irrigation</strong>. Much of that water is lost in old canals, unmetered furrows, and via inefficient schedules. Soil types and salinity vary across regions, while many farms still use fixed-time irrigation without feedback — leading to wasted water, higher costs, and environmental stress.</p>
+            <ul class="clean small">
+              <li>Large fraction of water used by agriculture</li>
+              <li>Outdated irrigation infrastructure</li>
+              <li>Lack of sensor-based decision-making</li>
+              <li>Heterogeneous soils & maintenance challenges</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Solution</h3>
+            <p class="small">The proposed solution is a smart drip system that uses sensor networks, an ML controller, and zone valves to apply water precisely. By forecasting soil moisture (24–72 hours) and reacting to measured conditions, the system reduces applied water while keeping yields steady.</p>
+            <ul class="clean small">
+              <li>Soil moisture + temperature + flow sensing</li>
+              <li>LPWAN gateways and edge processing</li>
+              <li>ML scheduling (LSTM / GBM / hybrid)</li>
+              <li>Farmer dashboard for monitoring & alerts</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section id="team">
+        <h2 class="card" style="padding:14px;border-radius:12px">Team</h2>
+        <div class="team-grid" style="margin-top:12px">
+          <div class="member card">
+            <div style="font-weight:800">Temur Kadirov</div>
+            <div class="role">Team Lead / System Architect</div>
+            <p class="small">IoT design, LPWAN, edge compute. Links: <a href="#">GitHub</a> • <a href="#">LinkedIn</a></p>
+          </div>
+          <div class="member card">
+            <div style="font-weight:800">Omar Karimov</div>
+            <div class="role">AI / ML Engineer</div>
+            <p class="small">LSTM & GBM models, feature engineering, PyTorch. Links: <a href="#">GitHub</a></p>
+          </div>
+          <div class="member card">
+            <div style="font-weight:800">Shamirzayev Usmon</div>
+            <div class="role">Hardware & Sensor Engineer</div>
+            <p class="small">Drip lines, filters, valves, sensor calibration.</p>
+          </div>
+          <div class="member card">
+            <div style="font-weight:800">Maxmudov Vosiqxoja</div>
+            <div class="role">Backend & Cloud Developer</div>
+            <p class="small">APIs, DB, dashboard. Cloud deployments & CI/CD.</p>
+          </div>
+          <div class="member card">
+            <div style="font-weight:800">Nasrullayev Feruz</div>
+            <div class="role">Research & Field Testing</div>
+            <p class="small">Soil & climate adaptation, pilot coordination, UX for farmers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why us -->
+      <section id="why" class="card">
+        <h2>Why our team can solve this</h2>
+        <p class="small">We combine cross-disciplinary expertise: field engineering, sensor integration, ML modelling, cloud & dashboard development, and local adaptation research. This lets us move from a prototype to a field-validated MVP quickly and responsibly.</p>
+        <ul class="clean small">
+          <li>Hands-on experience with sensors & LPWAN</li>
+          <li>Proven ML methods for time-series forecasting</li>
+          <li>Field-testing plan adapted to Uzbek soils & climate</li>
+          <li>Clear maintenance & scaling strategy</li>
+        </ul>
+      </section>
+
+      <!-- Roadmap -->
+      <section id="roadmap" class="card">
+        <h2>Roadmap</h2>
+        <div class="roadmap" style="margin-top:12px">
+          <div class="phase">
+            <h4>Idea (Done)</h4>
+            <p class="small">Problem research, literature review, architecture sketch.</p>
+            <div class="small">Deliverables: concept doc, initial cost estimates</div>
+          </div>
+          <div class="phase">
+            <h4>Prototype (Now)</h4>
+            <p class="small">Sensor mockups, gateway, basic dashboard, first ML prototype.</p>
+            <div class="small">Deliverables: data pipeline, basic model, test rig</div>
+          </div>
+          <div class="phase">
+            <h4>MVP (4–6 weeks)</h4>
+            <p class="small">Full sensor grid + valve control, 24–72h predictions, pilot on small plot.</p>
+            <div class="small">Deliverables: working system, pilot report</div>
+          </div>
+          <div class="phase">
+            <h4>Launch</h4>
+            <p class="small">1-hectare pilot, economics validation, partner outreach.</p>
+            <div class="small">Deliverables: scale plan, refinement, partnerships</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Implementation plan -->
+      <section id="plan" class="card">
+        <h2>How we'll implement the solution</h2>
+        <div class="grid-2" style="margin-top:12px">
+          <div>
+            <h3>Hardware & Field</h3>
+            <ul class="clean small">
+              <li>Soil moisture sensors (capacitive) at 10–30 cm & 40–60 cm</li>
+              <li>Flow meters on main supply and solenoid valves per zone</li>
+              <li>Pressure-compensated emitters, filters and flush valves</li>
+              <li>LPWAN (LoRa) gateway with wired fallback</li>
+            </ul>
+            <p class="small">Sensor density: ~8–12 moisture sensors + 1 flow meter per hectare (adjustable by crop & layout)</p>
+          </div>
+          <div>
+            <h3>Software & AI</h3>
+            <ul class="clean small">
+              <li>Backend: FastAPI + PostgreSQL</li>
+              <li>Dashboard: React/Next.js with real-time updates</li>
+              <li>Models: LSTM & GBM ensembles predicting 24–72h moisture</li>
+              <li>Metrics: RMSE for forecast accuracy; % water saved vs baseline</li>
+              <li>Tools: PyTorch, scikit-learn, Docker, GitHub Actions</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4 style="margin-top:12px">Development stages</h4>
+        <ol class="small">
+          <li>Collect sensor & weather data (2–4 weeks)</li>
+          <li>Build data pipeline and baseline models (2 weeks)</li>
+          <li>Prototype valve control & dashboard (2–3 weeks)</li>
+          <li>Field pilot & iterative tuning (1 crop season)</li>
+        </ol>
+
+        <h4 style="margin-top:12px">Maintenance & operations</h4>
+        <p class="small">Weekly filter cleaning, quarterly sensor calibration, automated alerts for pressure/flow anomalies. Local maintenance team + simple logs will keep the system reliable.</p>
+      </section>
+
+      <section class="card">
+        <h2>Contact & Next steps</h2>
+        <p class="small">Want the HTML file, deploy instructions, or a pitch deck? Use the buttons below.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <button class="btn" onclick="downloadHTML()">Download HTML</button>
+          <button class="btn secondary" onclick="alert('Pitch deck generation: coming — tell me your preferred slide count')">Request Pitch Deck</button>
+          <button class="btn secondary" onclick="alert('Deploy tips:\n1) Create GitHub repo\n2) Push this file as index.html\n3) Enable GitHub Pages (main branch)')">Deploy Tips</button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © AI Water Manager — Hackathon Demo • Team: Temur, Omar, Usmon, Vosiqxoja, Feruz • Built Nov 2025
+    </footer>
+  </div>
+
+  <script>
+    function scrollTo(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'})}
+
+    // demo interaction
+    const out = document.getElementById('demoout')
+    function updateDemo(){
+      const v = Number(document.getElementById('moslider').value)
+      let msg = ''
+      if(v < 25) msg = 'Urgent: schedule immediate irrigation for this zone (high deficit)'
+      else if(v < 40) msg = 'Recommended: small irrigation event in next 24h'
+      else if(v < 55) msg = 'Monitor: soil near threshold — wait for forecasted rain'
+      else msg = 'No irrigation needed — maintain current schedule'
+      out.textContent = 'Suggested action: ' + msg
+    }
+    updateDemo()
+
+    // download the current HTML source as a file
+    function downloadHTML(){
+      const html = `<!doctype html>\n` + document.documentElement.outerHTML
+      const blob = new Blob([html], {type: 'text/html'})
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'hackathon_demo_website.html'
+      a.click()
+      URL.revokeObjectURL(url)
+    }
+  </script>
+</body>
+</html>
