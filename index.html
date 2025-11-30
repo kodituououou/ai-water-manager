@@ -7,6 +7,11 @@
   <title data-i18n="meta_title">AgroAI — Smart Drip Irrigation for Uzbekistan</title>
   <meta name="description"
     content="AI-driven soil‑moisture forecasting and automated irrigation control for Uzbekistan’s water‑stressed agriculture.">
+   <!-- Load Inter font globally -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --bg: #0f1724;
@@ -139,7 +144,7 @@
         </svg>
         <div>
           <div style="font-weight:800;font-size:18px">AgroAI</div>
-          <div class="small" data-i18n="header_sub">AI‑powered precision drip irrigation</div>
+          <div class="small" data-i18n="header_sub">AI‑powered drip irrigation</div>
         </div>
       </div>
       <nav style="font-weight:600">
@@ -184,7 +189,7 @@
       <h3>The Challenge</h3>
       <p>Uzbekistan faces a <b>critical water crisis</b> in agriculture:</p>
       <ul class="small clean">
-        <li><b><a href="#">92% of national water</a></b> goes to agricultural irrigation</li>
+        <li><a href="https://documents1.worldbank.org/curated/en/099062424121035288/pdf/P1700301356bad0519ce81fc808f542aeb.pdf" style="color: #10b981; font-weight: bold;">92% of national water</a> goes to agricultural irrigation</li>
         <li>Outdated irrigation systems cause massive water loss through leakage and evaporation</li>
         <li>Cotton and wheat farming consume enormous water resources</li>
         <li>Chronic water stress threatens food security and economic stability</li>
@@ -195,7 +200,7 @@
       <h3>Our Solution</h3>
       <p>We've developed an <b>AI-powered smart irrigation system</b> that:</p>
       <ul class="small clean">
-        <li><b>Reduces water usage by 30–50%</b> through precision delivery</li>
+        <li><b style="color: #e6eef6;">Reduces water usage by 30–50%</b> through precision delivery</li>
         <li>Uses real-time soil moisture, temperature, and weather data</li>
         <li>Employs machine learning to predict irrigation needs 24–72 hours ahead</li>
         <li>Delivers water directly to plant roots via advanced drip technology</li>
@@ -206,11 +211,12 @@
     <!--------------------------- TEAM ------------------------------->
     <section id="team" style="margin-top:38px">
       <h2 class="card" style="padding:14px;border-radius:12px;margin-bottom:12px">👥 Meet Our Team</h2>
-      <p class="small">We are AgroAI — a multidisciplinary team dedicated to solving Uzbekistan’s water crisis.</p>
+      <p class="small">We are <b style="color: #10b981">AgroAI</b> — a multidisciplinary team dedicated to solving Uzbekistan’s water crisis.</p>
       <div class="team-grid">
         <div class="card">
           <h3>Temur Kadirov</h3>
           <p class="small">Team Lead • AI Engineer • Web Developer</p>
+          <p class="small"><a href="http://linkedin.com/in/temur-kadirov-b43967310" style="color: #10b981; text-decoration: none;">Links: LinkedIn </a></p>
         </div>
         <div class="card">
           <h3>Shamirzayev Usmon</h3>
@@ -219,6 +225,7 @@
         <div class="card">
           <h3>Maxmudov Vosiqxoja</h3>
           <p class="small">Backend • Devops • AI Engineer</p>
+          <p class="small"><a href="https://github.com/keesouwoudba/cs50-projects" style="color: #10b981; text-decoration: none;">Links: GitHub </a></p>
         </div>
         <div class="card">
           <h3>Nasrullayev Feruz</h3>
@@ -261,9 +268,8 @@
 
     <section id="roadmap" class="card" style="margin-top:32px">
       <h2>🗺️ Roadmap & Current Stage</h2>
-      <h3>Current Stage: <b>Pilot Development</b></h3>
-
-      <h3>Phase 1: Planning & Design — CURRENT</h3>
+     
+      <h3>Phase 1: Planning & Design — Current</h3>
       <ul class="small clean">
         <li>System architecture</li>
         <li>Sensor layout design</li>
@@ -291,7 +297,7 @@
     </section>
 
     <section id="plan" class="card" style="margin-top:32px">
-      <h2>🔧 How We Plan to Solve It</h2>
+      <h2>🔧 How We Plan to Solve The Issue</h2>
       <h3>System Architecture</h3>
       <ul class="small clean">
         <li><b>Field Sensors:</b> Soil moisture at 10–30cm & 40–60cm, thermistors, flow meters</li>
@@ -313,6 +319,15 @@
         <li>Lower fuel & labor costs</li>
         <li>Payback in 3–5 years</li>
       </ul>
+      
+      <h3>Maintenance & Sustainability</h2>
+      <ul class="small clean">
+        <li>Weekly filter cleaning (especially in high-salinity areas)</li>
+        <li>Automated alerts for pressure/flow anomalies</li>
+        <li>Quarterly sensor calibration</li>
+        <li>Maintenance log tracking</li>
+      </ul>
+      
     </section>
 
     <section id="impact" class="card" style="margin-top:32px">
@@ -337,13 +352,14 @@
       <h3>🤝 Social Impact</h3>
       <ul class="small clean">
         <li>Empower farmers with technology</li>
-        <li>Improve rural livelihoods</li>
+        <li>Improve rural livelihoods and food security</li>
         <li>Boost national water security</li>
       </ul>
     </section>
 
     <section id="contact" class="card" style="margin-top:32px">
       <h2>📞 Contact & Next Steps</h2>
+      <h3>We are actively seeking:</h3>
       <ul class="small clean">
         <li><b>Pilot site partners:</b> 1‑ha field test</li>
         <li><b>Government collaboration:</b> Ministry of Agriculture & Water Resources</li>
@@ -351,13 +367,14 @@
         <li><b>Research partnerships:</b> Universities & institutes</li>
       </ul>
 
-      <section class="card" style="margin-top:32px;text-align:center">
-        <h2>🚀 Join us in revolutionizing agriculture in Uzbekistan.</h2>
-        <p class="small">Together, we can turn water scarcity into water security.</p>
-      </section>
-
+      <a href="https://t.me/agroai_solutions/43" style="text-decoration:none; color: #e6eef6">
+      	<section class="card" style="margin-top:32px;text-align:center">
+        	<h2>🚀 Join us in revolutionizing agriculture in Uzbekistan.</h2>
+        	<p class="small">Press to join our Telegram channel</p>
+      	</section>
+			</a>
       <footer>
-        © AgroAI • Built Nov 2025
+        © AgroAI Solutions • Built Nov 2025
       </footer>
 </body>
 </html>
