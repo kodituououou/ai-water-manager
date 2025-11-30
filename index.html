@@ -63,9 +63,27 @@
 
     /* small utility */
     .kbd{display:inline-block;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700}
+  
+    /* Video background */
+    #bg-video{
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+    }
+    .video-overlay{
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.45);z-index:-1;
+    }
+    /* Carousel */
+    .carousel{display:flex;overflow-x:auto;gap:12px;padding:10px}
+    .carousel img{height:160px;border-radius:10px;flex-shrink:0}
   </style>
 </head>
 <body>
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="media/irrigation.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
   <div class="wrap">
     <header>
       <div class="logo">
@@ -94,6 +112,7 @@
           <h1>AI-driven smart drip irrigation for Uzbekistan</h1>
           <p class="lead">Reduce water use, keep yields stable — a field-scale system combining IoT sensors, LPWAN gateways, solenoid valves and ML forecasting to irrigate only when crops need it.</p>
           <div class="cta">
+            <button class="btn" onclick="downloadHTML()">Download HTML</button>
             <button class="btn secondary" onclick="scrollTo('#roadmap')">See Roadmap</button>
           </div>
 
@@ -104,7 +123,7 @@
           </div>
 
           <hr style="border:none;height:1px;background:rgba(255,255,255,0.02);margin:16px 0">
-          <p class="small">Built by a motivated team of young specialists in hardware, AI, cloud, and agronomy — united by the mission to drive meaningful global change.</p>
+          <p class="small">Built by a 5-person team combining hardware, AI, cloud, agronomy and field testing expertise.</p>
         </div>
 
         <aside>
@@ -153,12 +172,12 @@
           <div class="member card">
             <div style="font-weight:800">Temur Kadirov</div>
             <div class="role">Team Lead / System Architect</div>
-            <p class="small">IoT design, LPWAN, edge compute. Links:<a href="http://linkedin.com/in/temur-kadirov-b43967310">LinkedIn</a></p>
+            <p class="small">IoT design, LPWAN, edge compute. Links: <a href="#">GitHub</a> • <a href="#">LinkedIn</a></p>
           </div>
           <div class="member card">
             <div style="font-weight:800">Omar Karimov</div>
             <div class="role">AI / ML Engineer</div>
-            <p class="small">LSTM & GBM models, feature engineering, PyTorch. </p>
+            <p class="small">LSTM & GBM models, feature engineering, PyTorch. Links: <a href="#">GitHub</a></p>
           </div>
           <div class="member card">
             <div style="font-weight:800">Shamirzayev Usmon</div>
@@ -193,6 +212,15 @@
       <!-- Roadmap -->
       <section id="roadmap" class="card">
         <h2>Roadmap</h2>
+
+        <!-- Carousel visuals -->
+        <div class="carousel" style="margin:12px 0 20px 0">
+          <img src="media/idea.jpg" alt="Idea stage" />
+          <img src="media/prototype.jpg" alt="Prototype" />
+          <img src="media/mvp.jpg" alt="MVP" />
+          <img src="media/launch.jpg" alt="Launch" />
+        </div>
+
         <div class="roadmap" style="margin-top:12px">
           <div class="phase">
             <h4>Idea (Done)</h4>
